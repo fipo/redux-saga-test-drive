@@ -1,15 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react'
+import { Provider } from 'react-redux'
+import store from './store'
+import './styles/global.css'
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header>
-          <h1>Welcome to Saga</h1>
-        </header>
-      </div>
-    );
-  }
-}
+import Comments from './components/comments'
 
-export default App;
+const App = () => (
+  <Provider store={store}>
+    <div className="App">
+      <header>
+        <h1>Welcome to Saga</h1>
+      </header>
+      <Comments />
+    </div>
+  </Provider>
+)
+
+export default App
