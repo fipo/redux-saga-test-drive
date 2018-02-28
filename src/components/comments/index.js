@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { getComments } from './actions'
 
+import Comment from './Comment'
+
 class Comments extends Component {
   componentDidMount() {
     this.props.getComments()
@@ -9,7 +11,7 @@ class Comments extends Component {
 
   render() {
     const { comments } = this.props
-    return <div>{JSON.stringify(comments, null, 2)}</div>
+    return <div>{comments.map(comment => <Comment key={comment.id} {...comment} />)}</div>
   }
 }
 
